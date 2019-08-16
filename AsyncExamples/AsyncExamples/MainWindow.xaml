@@ -1,0 +1,27 @@
+﻿<Window x:Class="LogWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="620" Width="390" Background="Azure">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="Azure" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+    </Window.Resources>
+    <StackPanel HorizontalAlignment="Left" Width="380" Margin="0,20,0,0">
+        <Button Height="50" Content="RunExample1" Click="RunExample1"/>
+        <Button Height="50" Content="RunExample2" Click="RunExample2"/>
+        <Button Height="50" Content="RunExample3" Click="RunExample3"/>
+        <Button Height="50" Content="RunExample4" Click="RunExample4"/>
+        <Button Height="50" Content="RunExample5" Click="RunExample5"/>
+        <Button Height="50" Content="RunExample6" Click="RunExample6"/>
+        <Button Height="50" Content="RunExample7" Click="RunExample7"/>
+        <Button Height="50" Content="RunExample8" Click="RunExample8"/>
+    </StackPanel>
+</Window>
