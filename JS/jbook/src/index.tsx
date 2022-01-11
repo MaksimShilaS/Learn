@@ -79,7 +79,7 @@ const App = () => {
         ref={iframeRef}
         srcDoc={html}
         sandbox='allow-scripts'
-        // style={{ display: 'none' }}
+        style={{ display: 'none' }}
       />
     </div>
   );
