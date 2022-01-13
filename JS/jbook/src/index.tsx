@@ -68,7 +68,12 @@ const App = () => {
   const initialValue = `import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => <h1>Hello World!</h1>;
+const App = () => {
+  return <div>
+    <h1>asdfasdf</h1>
+    <button onClick={() => console.log('click')}>Click me</button>
+  </div>
+}
 
 ReactDOM.render(<App />, document.querySelector('#root'));
   `;

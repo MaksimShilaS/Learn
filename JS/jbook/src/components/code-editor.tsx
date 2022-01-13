@@ -3,6 +3,9 @@ import { useRef } from 'react';
 import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
+import { parse } from '@babel/parser';
+import traverse from '@babel/traverse';
+import MonacoJSXHighlighter from 'monaco-jsx-highlighter';
 
 interface CodeEditorProps {
   initialValue: string;
@@ -12,6 +15,12 @@ interface CodeEditorProps {
 const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
   const editorRef = useRef<any>();
 
+  const babelParse = (code: string) =>
+    parse(code, {
+      sourceType: 'module',
+      plugins: ['jsx'],
+    });
+
   const onEditorDidMount: EditorDidMount = (getValue, monacoEditor) => {
     editorRef.current = monacoEditor;
     monacoEditor.onDidChangeModelContent(() => {
@@ -19,6 +28,22 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
     });
 
     monacoEditor.getModel()?.updateOptions({ tabSize: 2 });
+
+    const highlighter = new MonacoJSXHighlighter(
+      // @ts-ignore
+      window.monaco,
+      babelParse,
+      traverse,
+      monacoEditor
+    );
+    highlighter.highLightOnDidChangeModelContent(
+      0, // debounceTime
+      (ast: any) => ast, // afterHightlight
+      () => {}, // onHighlightError
+      null, // getAstPromise
+      () => {} // onParseAstError
+    );
+    highlighter.addJSXCommentCommand();
   };
 
   const onFormatClick = () => {
