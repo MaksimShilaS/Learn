@@ -1,8 +1,10 @@
+import 'bulmaswatch/superhero/bulmaswatch.min.css';
 import * as esbuild from 'esbuild-wasm';
 import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { fetchPlugin } from './plugins/fetch-plugin';
 import { unpkgPathPlugin } from './plugins/unpckg-path-plugin';
+import CodeEditor from './components/code-editor';
 
 const App = () => {
   const esBuildServiceRef = useRef<esbuild.Service>();
@@ -63,13 +65,19 @@ const App = () => {
     </html>
   `;
 
+  const initialValue = `import React from 'react';
+import ReactDOM from 'react-dom';
+
+const App = () => <h1>Hello World!</h1>;
+
+ReactDOM.render(<App />, document.querySelector('#root'));
+  `;
+
   return (
     <div>
-      <textarea
-        rows={10}
-        cols={40}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+      <CodeEditor
+        initialValue={initialValue}
+        onChange={(value) => setInput(value)}
       />
       <div>
         <button onClick={onClick}>Submit</button>
@@ -79,7 +87,7 @@ const App = () => {
         ref={iframeRef}
         srcDoc={html}
         sandbox='allow-scripts'
-        style={{ display: 'none' }}
+        // style={{ display: 'none' }}
       />
     </div>
   );
