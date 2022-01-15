@@ -20,17 +20,23 @@ const CodeCell = () => {
   }, [input]);
 
   return (
-    <Resizable direction='vertical'>
-      <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
-        <Resizable direction='horizontal'>
-          <CodeEditor
-            initialValue='// Put some code here'
-            onChange={(value) => setInput(value)}
-          />
+    <div className='card'>
+      <div className='card-content'>
+        <Resizable direction='vertical'>
+          <div
+            style={{ height: '100%', display: 'flex', flexDirection: 'row' }}
+          >
+            <Resizable direction='horizontal'>
+              <CodeEditor
+                initialValue='// Put some code here'
+                onChange={(value) => setInput(value)}
+              />
+            </Resizable>
+            <Preview code={code} bundleError={bundleError} />
+          </div>
         </Resizable>
-        <Preview code={code} bundleError={bundleError} />
       </div>
-    </Resizable>
+    </div>
   );
 };
 
