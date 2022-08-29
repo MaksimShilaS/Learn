@@ -1,4 +1,4 @@
-let playerState = "roll";
+let playerState = "idle";
 const animationSelect = document.getElementById("animations");
 animationSelect.addEventListener("change", (e) => playerState = e.target.value);
 
