@@ -1,0 +1,19 @@
+body {
+    cursor: url('data:image/x-icon;base64,AAACAAEAICACAAgACAAwAQAAFgAAACgAAAAgAAAAQAAAAAEAAQAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAMAAAADAAAAAwAAAAAAAAAAAAAB8D4AAfA+AAAAAAAAAAAAAAMAAAADAAAAAwAAAAMAAAADAAAAAAAAA///////////////////////////////////////////////////////////////////////////+H////h////4f///+H////h////4f///+H///AeA//wHgP/8B4D//AeA///4f///+H////h////4f///+H////h////4f//8='), auto;
+    background: linear-gradient(to bottom, lightgray, gray, red);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#collisionCanvas {
+    opacity: 0;
+}
