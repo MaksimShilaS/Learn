@@ -1,7 +1,7 @@
-const UP = ["ArrowUp", "w", " "];
-const DOWN = ["ArrowDown", "s"];
-const LEFT = ["ArrowLeft", "a"];
-const RIGHT = ["ArrowRight", "d"];
+const UP = ["ArrowUp", "KeyW", "Space"];
+const DOWN = ["ArrowDown", "KeyS"];
+const LEFT = ["ArrowLeft", "KeyA"];
+const RIGHT = ["ArrowRight", "KeyD"];
 const ALLOWED_KEYS = [
     ...UP,
     ...DOWN,
@@ -12,15 +12,16 @@ export default class InputHandler {
     constructor() {
         this.keys = [];
         window.addEventListener("keydown", e => {
-            if (!this.keys.includes(e.key) && ALLOWED_KEYS.includes(e.key)) {
-                this.keys.push(e.key);
+            console.log(e);
+            if (!this.keys.includes(e.code) && ALLOWED_KEYS.includes(e.code)) {
+                this.keys.push(e.code);
             }
         });
         window.addEventListener("keyup", e => {
-            if (ALLOWED_KEYS.includes(e.key)) {
-                this.keys.splice(this.keys.indexOf(e.key), 1);
+            if (ALLOWED_KEYS.includes(e.code)) {
+                this.keys.splice(this.keys.indexOf(e.code), 1);
             }
-        })
+        });
     }
 
     isUp = () => this.#keyPressed(UP);
