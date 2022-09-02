@@ -22,10 +22,11 @@ window.addEventListener("load", () => {
 
     const soundtrack = new Audio();
     soundtrack.src = "assets/soundtrack.mp3";
+    soundtrack.volume = 0.3;
     soundtrack.addEventListener("ended", () => soundtrack.play());
-
+    soundtrack.play();
+    
     function newGame() {
-        soundtrack.play();
         gameMenu.hide();
         isGameRunning = true;
         state = new State();

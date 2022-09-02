@@ -8,6 +8,6 @@ export default class State {
     }
 
     level() {
-        return Math.floor(this.score / 10) + 1;
+        return Math.floor(this.score / 5) + 1;
     }
 }

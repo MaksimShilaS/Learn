@@ -1,4 +1,4 @@
-const UP = ["ArrowUp", "w"];
+const UP = ["ArrowUp", "w", " "];
 const DOWN = ["ArrowDown", "s"];
 const LEFT = ["ArrowLeft", "a"];
 const RIGHT = ["ArrowRight", "d"];

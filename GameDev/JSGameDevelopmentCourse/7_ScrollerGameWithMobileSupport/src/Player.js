@@ -23,6 +23,7 @@ export default class Player {
         this.jumpHeight = 25;
         this.hitboxRadius = this.width * 0.35;
         this.hitSound = ouchAudio;
+        this.hitSound.volume = 1;
     }
 
     draw(context) {

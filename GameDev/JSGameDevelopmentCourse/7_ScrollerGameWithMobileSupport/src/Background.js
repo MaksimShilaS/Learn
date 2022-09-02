@@ -7,7 +7,7 @@ export default class Background {
         this.y = 0;
         this.width = 2400;
         this.height = 720;
-        this.speed = 6;
+        this.speed = 4;
         this.frameTimer = 0;
         this.frameInterval = 0;
     }

@@ -8,7 +8,7 @@ export default class EnemySpawner {
         this.state = state;
         this.enemies = [];
         this.enemyTimer = 0;
-        this.enemySpawnInterval = this.#newSpawnInterval() / (1 + this.state.level() * 0.2);
+        this.enemySpawnInterval = this.#newSpawnInterval();
         this.explosions = [];
     }
 
@@ -16,6 +16,7 @@ export default class EnemySpawner {
         if (this.enemyTimer > this.enemySpawnInterval) {
             this.enemies.push(new Enemy(this.gameWidth, this.gameHeight, this.state));
             this.enemySpawnInterval = this.#newSpawnInterval();
+            console.log(this.enemySpawnInterval);
             this.enemyTimer = 0;
         } else {
             this.enemyTimer += deltaTime;
@@ -42,6 +43,7 @@ export default class EnemySpawner {
     }
 
     #newSpawnInterval() {
-        return Math.random() * 3000 + 1000;
+        const base = Math.random() * 2000 + 500
+        return base / (this.state.level() * 0.6);
     }
 }
