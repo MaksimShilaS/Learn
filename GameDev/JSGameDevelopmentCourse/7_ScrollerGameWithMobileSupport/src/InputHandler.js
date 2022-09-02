@@ -12,7 +12,6 @@ export default class InputHandler {
     constructor() {
         this.keys = [];
         window.addEventListener("keydown", e => {
-            console.log(e);
             if (!this.keys.includes(e.code) && ALLOWED_KEYS.includes(e.code)) {
                 this.keys.push(e.code);
             }
