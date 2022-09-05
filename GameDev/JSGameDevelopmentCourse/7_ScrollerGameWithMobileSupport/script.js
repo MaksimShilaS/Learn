@@ -41,6 +41,7 @@ window.addEventListener("load", () => {
         const deltaTime = timeStamp - lastTime;
         lastTime = timeStamp;
         context.clearRect(0, 0, canvas.width, canvas.height);
+        input.update(deltaTime);
 
         if (isGameRunning) {
             if (state.lives > 0) {

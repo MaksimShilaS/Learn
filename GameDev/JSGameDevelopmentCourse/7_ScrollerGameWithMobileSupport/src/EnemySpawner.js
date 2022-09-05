@@ -16,7 +16,6 @@ export default class EnemySpawner {
         if (this.enemyTimer > this.enemySpawnInterval) {
             this.enemies.push(new Enemy(this.gameWidth, this.gameHeight, this.state));
             this.enemySpawnInterval = this.#newSpawnInterval();
-            console.log(this.enemySpawnInterval);
             this.enemyTimer = 0;
         } else {
             this.enemyTimer += deltaTime;
