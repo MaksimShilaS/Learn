@@ -37,6 +37,7 @@ class State {
 
     init() {
         this.player.frameY = this.frameY;
+        this.player.frameX = 0;
         this.player.framesCount = this.framesCount;
     }
 

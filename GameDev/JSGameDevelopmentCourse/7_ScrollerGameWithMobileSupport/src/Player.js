@@ -10,8 +10,8 @@ export default class Player {
         this.x = 0;
         this.y = this.gameHeight - this.height;
         this.image = playerImg;
-        this.frameX = 0;
         this.frameY = 0;
+        this.frameX = 0;
         this.framesCount = 9;
         this.fps = 20;
         this.frameTimer = 0;
@@ -92,11 +92,18 @@ export default class Player {
         if (!this.#onGround()) {
             this.vy += this.weight;
             this.framesCount = 7;
-            this.frameY = 1;
+            if (this.frameY != 1) {
+                this.frameY = 1;
+                this.frameX = 0;
+            }
         } else {
             this.vy = 0;
-            this.framesCount = 9;
-            this.frameY = 0;
+            if (this.frameY != 0) {
+                this.frameY = 0;
+                this.frameX = 0;
+                this.framesCount = 9;
+            }
+
         }
         if (this.y > this.gameHeight - this.height) {
             this.y = this.gameHeight - this.height;
